@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Student Search Page</title>
+{% endblock %}
+
+{% block content %}
+<h3 style="text-align: center;">........Student Information........</h3><br>
+<table class="table table-primary">
+    <tr style="text-align: center;">
+        <th>Department Name</th>
+        <th>Student Name</th>
+        <th>Student Roll No</th>
+        <th>Student Address</th>
+        <th>Student Marks</th>
+    </tr>
+    {% for i in sturesult %}
+        <tr style="text-align: center;">
+            <td>{{i.department}}</td>
+            <td>{{i.stuname}}</td>
+            <td>{{i.sturollno}}</td>
+            <td>{{i.stuaddress}}</td>
+            <td>{{i.stumarks}}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

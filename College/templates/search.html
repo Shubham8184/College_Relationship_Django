@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Search Page</title>
+{% endblock %}
+{% block content %}
+<div>
+    <form  method='POST' style="margin: 3% 5%;">
+        <h2 style="text-align: center;">Search Here Department,Lecturer,Student....</h2><br><br>
+        {% csrf_token %}
+        <!-- <input type="radio" name="dep" value="Department"/>Department
+        <input type="radio" name="dep" value="Student"/>Student
+        <input type="radio" name="dep" value="Lecturer"/>Lecturer
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" name='search' aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>  -->
+        <!-- <div style="margin: 0% 45%;">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="dep" id="exampleRadios1" value="Department" checked>
+            <label class="form-check-label" for="exampleRadios1">Department</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="dep" id="exampleRadios1" value="Student" checked>
+            <label class="form-check-label" for="exampleRadios1">Student</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="dep" id="exampleRadios1" value="Lecturer" checked>
+            <label class="form-check-label" for="exampleRadios1">Lecturer</label>
+        </div>
+        </div> -->
+        <br><br>
+        <div style="color: red;">{% if messages %}
+            {% for msj in messages %}
+                {{msj}}
+            {% endfor %}
+        {% endif %}</div>
+        <div class="container h-100">
+            <div class="d-flex justify-content-center h-100">
+              <div class="searchbar">
+                <input class="search_input" type="text" name="search" placeholder="Search...">
+                <button class="search_icon" type='submit'><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="toggle_radio">
+            <input type="radio" class="toggle_option" id="first_toggle" name="dep" value="Department">
+            <input type="radio" class="toggle_option" id="second_toggle" name="dep" value="Lecturer">
+            <input type="radio" class="toggle_option" id="third_toggle" name="dep" value="Student">
+            <label for="first_toggle"><p>Department</p></label>
+            <label for="second_toggle"><p>Lecturer</p></label>
+            <label for="third_toggle"><p>Student</p></label>
+            <div class="toggle_option_slider">
+        </div> 
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Show Department Page</title>
+{% endblock %}
+
+{% block content %}
+<div style="width: 80%;margin: 3% 10%;">
+    <h2 style="text-align: center;color: seagreen;">College Department List....</h2>
+    <a href="{% url 'Adddepartment' %}"><button class="btn btn-success">Department Registration</button></a>
+    <br><br>
+    <table class="table table-info">
+        <tr style="text-align: center;">
+            <th>College Department Name</th>
+            <th>College Department Intake</th>
+        </tr>
+        {% for i in dep %}
+        <tr style="text-align: center;">
+            <td>{{i.depname}}</td>
+            <td>{{i.depintake}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

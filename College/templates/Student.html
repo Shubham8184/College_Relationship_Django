@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Home Page</title>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron" style="width: 50%;margin: 2% 25%;">
+    <h3 style="text-align: center;margin: 2% 0% 10% 0%;">Welcome to Hindustan Aeronautical Institute</h3>
+    <a href="{% url 'Addstudent' %}"><button class="btn btn-success btn-lg btn-block" style="margin: 2% 0%;">New Student Registration</button></a>
+    <br><hr>
+    <hr><br>
+    <a href="{% url 'Showstudent' %}"><button class="btn btn-info btn-lg btn-block" style="margin: 2% 0%;">College Student List</button></a>
+</div>
+{% endblock %}

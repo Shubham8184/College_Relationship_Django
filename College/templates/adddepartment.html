@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Add Department Page</title>
+{% endblock %}
+
+{% block content %}
+<!-- <a><button>Show Department</button></a> -->
+<div class="jumbotron" style="width: 40%;margin: 3% 30%;">
+    <form method="POST" >
+        <h2 style="text-align: center;margin: 2% 0% 4% 0%;">Add College Department...</h2>
+        {% csrf_token %}
+        {{form|crispy}}
+        <div style="color: red;">
+        {% if messages %}
+            {% for msj in messages %}
+                {{msj}}
+            {% endfor %}
+        {% endif %}</div><br>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Department Register</button>
+    </form>
+    <br><hr><hr><br>
+    <a href="{% url 'Showdepartment' %}"><button class="btn btn-success btn-lg btn-block">College Department List</button></a>
+</div>
+{% endblock %}

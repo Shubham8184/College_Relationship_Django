@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Show Lecturer Page</title>
+{% endblock %}
+
+{% block content %}
+    <div style="width: 80%; margin: 5% 10%;">
+    <h2 style="text-align: center;color:purple;">College Lecturer List....</h2>
+    <a href="{% url 'Addlecturer' %}"><button class="btn btn-primary">Lecturer Registration</button></a>
+    <br><br>
+    <table class="table table-success">
+        <tr style='text-align:center'>
+            <th>Lecturer Department</th>
+            <th>Lecturer Name</th>
+            <th>Lecturer Salary</th>
+            <th>Lecturer Subject</th>
+            
+        </tr>
+        {% for i in stu %}
+            <tr style="text-align: center;">
+                <td>
+                    {% for j in i.department.all %}
+                        {{j}},
+                    {% endfor %}
+                </td>
+                <td>{{i.lecname}}</td>
+                <td>{{i.lecsal}}</td>
+                <td>{{i.lecsub}}</td>
+                <!-- <td><a href="{% url 'Updatelecturer' i.id %}"><button class="btn btn-warning">Update</button></a></td>
+                <td><a href="{% url 'Deletelecturer' i.id %}"><button class="btn btn-danger">Delete</button></a></td> -->
+                <td><a href="{% url 'Updatelecturer' i.id %}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons" style="color:orange;">&#xE254;</i></a></td>
+                <td><a href="{% url 'Deletelecturer' i.id %}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" style="color:red;">&#xE872;</i></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}

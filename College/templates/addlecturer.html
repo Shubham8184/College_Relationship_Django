@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Add Lecturer Page</title>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron" style="width: 50%;margin: 3% 30%;">
+    <form method="POST">
+        <h2 style="text-align: center;margin: 2% 0% 4% 0%;">Lecturer Registration...</h2>
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-success btn-lg btn-block">Lecturer Register</button>
+    </form>
+    <br><hr><hr><br>
+    <a href="{% url 'Showlecturer' %}"><button class="btn btn-info btn-lg btn-block">College Lecturer List</button></a>
+    </div>
+{% endblock %}

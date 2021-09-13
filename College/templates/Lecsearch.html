@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Lecturer Search Page</title>
+{% endblock %}
+
+{% block content %}
+<div style="width: 80%;margin: 3% 10%;">
+<h3 style="text-align: center;color: purple;">........Lecturer Information........</h3><br>
+<table class="table table-primary">
+    <tr style="text-align: center;">
+        <th>Department Name</th>
+        <th>Lecturer Name</th>
+        <th>Lecturer Salary</th>
+        <th>Lecturer Subject</th>
+    </tr>
+    {% for i in lecresult %}
+        <tr style="text-align: center;">
+            <td>
+                {% for j in i.department.all %}
+                        {{j}},
+                {% endfor %}
+            </td>
+            <td>{{i.lecname}}</td>
+            <td>{{i.lecsal}}</td>
+            <td>{{i.lecsub}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

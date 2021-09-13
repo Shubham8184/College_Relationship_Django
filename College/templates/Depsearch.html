@@ -1,0 +1,72 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Department Search Page</title>
+{% endblock %}
+
+{% block content %}
+<!-- {% for i in lecresult %}
+{% for j in i.department.all %}
+    {{j}}
+{% endfor %}
+{{i.lecname}}
+{{i.lecsal}}
+{{i.lecsub}}
+{% endfor %}<br><br><br>
+
+{% for i in sturesult %}
+{% for j in i.department.all %}
+    {{j}}
+{% endfor %}
+{{i.stuname}}
+{{i.sturollno}}
+{{i.stuaddress}}
+{{i.stumarks}}
+{% endfor %} -->
+<div style="width: 80%;margin: 3% 10%;">
+<h2 style="text-align: center;color: purple;">........Lecturer Information........</h2><br>
+<table class="table table-primary">
+    <tr style="text-align: center;">
+        <th>Department Name</th>
+        <th>Lecturer Name</th>
+        <th>Lecturer Salary</th>
+        <th>Lecturer Subject</th>
+    </tr>
+    {% for i in lecresult %}
+        <tr style="text-align: center;">
+            <td>
+                {% for j in i.department.all %}
+                        {{j}},
+                {% endfor %}
+            </td>
+            <td>{{i.lecname}}</td>
+            <td>{{i.lecsal}}</td>
+            <td>{{i.lecsub}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+<br><br>
+<div style="width: 80%;margin: 3% 10%;">
+<h3 style="text-align: center;color: seagreen;">........Student Information........</h3><br>
+<table class="table table-primary">
+    <tr style="text-align: center;">
+        <th>Department Name</th>
+        <th>Student Name</th>
+        <th>Student Roll No</th>
+        <th>Student Address</th>
+        <th>Student Marks</th>
+    </tr>
+    {% for i in sturesult %}
+        <tr style="text-align: center;">
+            <td>{{i.department}}</td>
+            <td>{{i.stuname}}</td>
+            <td>{{i.sturollno}}</td>
+            <td>{{i.stuaddress}}</td>
+            <td>{{i.stumarks}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}
